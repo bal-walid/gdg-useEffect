@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
-import Timer from "./components/Timer.jsx";
+import TimerDisplay from "./components/TimerDisplay.jsx";
 import Counter from "./components/Counter.jsx";
 
 const router = createBrowserRouter([
@@ -10,7 +10,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     children: [
-      { path: "/timer", element: <Timer /> },
+      { path: "/timer", element: <TimerDisplay /> },
       { path: "/counter", element: <Counter /> },
     ],
   },
