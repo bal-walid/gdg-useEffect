@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
 import TimerDisplay from "./components/TimerDisplay.jsx";
 import Counter from "./components/Counter.jsx";
+import Weather from "./components/Weather.jsx";
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/timer", element: <TimerDisplay /> },
       { path: "/counter", element: <Counter /> },
+      { path: "/weather", element: <Weather /> },
     ],
   },
 ]);

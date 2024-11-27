@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 const routes = [
   { name: "Timer", path: "/timer" },
   { name: "Counter", path: "/counter" },
+  { name: "Weather", path: "/weather" },
 ];
 
 const Navbar = () => {
