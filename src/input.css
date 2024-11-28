@@ -7,6 +7,21 @@
   src: url('./assets/Digital7Italic.ttf');
 }
 
+.text-shadow {
+  text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number]{
+  -moz-appearance: textfield;
+}
+
+
 #root {
   @apply h-screen w-screen;
 }
