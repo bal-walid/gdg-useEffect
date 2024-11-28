@@ -3,13 +3,13 @@ import { useEffect, useState } from "react";
 const apiKey = "17691801c0805c78a2b57d524f293479";
 
 const fetchLocation = async () => {
-  const res = await fetch("http://ip-api.com/json?fields=lat,lon");
-  const { lat, lon } = await res.json();
-  return { lat, lon };
+  const res = await fetch("http://ip-api.com/json?fields=city");
+  const { city } = await res.json();
+  return city;
 };
 
-const fetchWeather = async (lat, lon) => {
-  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+const fetchWeather = async (city) => {
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
   const res = await fetch(url);
   const json = await res.json();
   const { main, description, icon } = json.weather[0];
@@ -20,27 +20,25 @@ const fetchWeather = async (lat, lon) => {
 };
 
 const Weather = () => {
-  const [coords, setCoords] = useState(null);
-  const [latitudeInput, setLatitudeInput] = useState("");
-  const [longitudeInput, setLongitudeInput] = useState("");
+  const [city, setCity] = useState("");
+  const [cityInput, setCityInput] = useState("")
   const [weather, setWeather] = useState(null);
 
   useEffect(() => {
-    fetchLocation().then((coords) => {
-      setCoords(coords);
-      setLatitudeInput(coords.lat);
-      setLongitudeInput(coords.lon);
+    fetchLocation().then((city) => {
+      setCity(city);
+      setCityInput(city);
     });
   }, []);
 
   useEffect(() => {
     setWeather(null);
-    if (coords) {
-      fetchWeather(coords.lat, coords.lon).then((weatherData) =>
+    if (city) {
+      fetchWeather(city).then((weatherData) =>
         setWeather(weatherData)
       );
     }
-  }, [coords]);
+  }, [city]);
 
   if (weather) {
     return (
@@ -53,26 +51,17 @@ const Weather = () => {
         </div>
         <form>
           <input
-            type="number"
-            name="lat"
-            value={latitudeInput}
-            onChange={(e) => setLatitudeInput(e.target.value)}
-          />
-          <input
-            type="number"
-            name="lon"
-            value={longitudeInput}
-            onChange={(e) => setLongitudeInput(e.target.value)}
+            type="text"
+            name="city"
+            value={cityInput}
+            onChange={(e) => setCityInput(e.target.value)}
           />
           <button
             type="button"
             onClick={() =>
-              setCoords({
-                lat: parseFloat(latitudeInput),
-                lon: parseFloat(longitudeInput),
-              })
+              setCity(cityInput)
             }
-            disabled={!(latitudeInput && longitudeInput)}
+            disabled={!cityInput}
           >
             Change
           </button>
