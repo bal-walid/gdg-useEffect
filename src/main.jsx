@@ -11,7 +11,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     children: [
-      { path: "/timer", element: <TimerDisplay /> },
+      { path: "/", element: <TimerDisplay /> },
       { path: "/counter", element: <Counter /> },
       { path: "/weather", element: <Weather /> },
     ],

@@ -33,8 +33,7 @@ const Timer = () => {
 
   return (
     <>
-      <div>Timer </div>
-      <p>
+      <p className="font-digital font-medium text-[10rem] text-[#212121]">
         {hours}:{String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}
       </p>
     </>

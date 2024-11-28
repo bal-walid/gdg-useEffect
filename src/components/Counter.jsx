@@ -13,14 +13,14 @@ const Counter = () => {
     return () => clearInterval(id);
   }, [speed]);
   return (
-    <>
+    <div>
       <div>Counter </div>
       <p>{count}</p>
       <form >
         <input type={'number'} value={input} onChange={(e) => setInput(parseInt(e.target.value))} />
         <button type="button" onClick={() => setSpeed(input)}>Speed</button>
      </form>
-    </>
+    </div>
   );
 };
 

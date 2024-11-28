@@ -44,7 +44,7 @@ const Weather = () => {
 
   if (weather) {
     return (
-      <>
+      <div>
         <div>
           <h1>{weather.title}</h1>
           <img src={weather.iconPath} alt={weather.title} />
@@ -77,7 +77,7 @@ const Weather = () => {
             Change
           </button>
         </form>
-      </>
+      </div>
     );
   }
 
