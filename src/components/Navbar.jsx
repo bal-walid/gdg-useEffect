@@ -22,7 +22,7 @@ const Navbar = ({ bg, iconColor }) => {
       >
         {routes.map((route) => (
           <Link key={route.path} to={route.path}>
-            <div style={{color: iconColor}} className="bg-white border-[1px] border-black p-2 rounded-md">
+            <div style={{color: iconColor}} className="bg-white p-2 rounded-md">
               {route.icon}
             </div>
           </Link>

@@ -21,7 +21,7 @@ const fetchWeather = async (city) => {
 
 const Weather = () => {
   const [city, setCity] = useState("");
-  const [cityInput, setCityInput] = useState("")
+  const [cityInput, setCityInput] = useState("");
   const [weather, setWeather] = useState(null);
 
   useEffect(() => {
@@ -34,38 +34,33 @@ const Weather = () => {
   useEffect(() => {
     setWeather(null);
     if (city) {
-      fetchWeather(city).then((weatherData) =>
-        setWeather(weatherData)
-      );
+      fetchWeather(city).then((weatherData) => setWeather(weatherData));
     }
   }, [city]);
 
   if (weather) {
     return (
-      <div>
-        <div>
-          <h1>{weather.title}</h1>
-          <img src={weather.iconPath} alt={weather.title} />
-          <p>{weather.temp}</p>
-          <p>{weather.description}</p>
-        </div>
-        <form>
-          <input
-            type="text"
-            name="city"
-            value={cityInput}
-            onChange={(e) => setCityInput(e.target.value)}
-          />
-          <button
-            type="button"
-            onClick={() =>
-              setCity(cityInput)
-            }
-            disabled={!cityInput}
-          >
-            Change
-          </button>
-        </form>
+      <div className="flex flex-col w-full items-center text-white">
+        <input
+          type="text"
+          name="city"
+          value={cityInput}
+          onChange={(e) => setCityInput(e.target.value)}
+          className="bg-transparent w-full text-center outline-none text-[4rem] text-shadow"
+        />
+        <h1 className="text-semibold text-[2rem]" >{weather.title}</h1>
+        <p className="italic capitalize text-lg">{weather.description}</p>
+        <img className="w-[200px] h-[120px] object-cover" src={weather.iconPath} alt={weather.title} />
+        <p className="text-lg">{weather.temp} °C</p>
+        
+
+        <button
+          className="mt-2 text-xl hover:font-medium"
+          type="button"
+          onClick={() => setCity(cityInput)}
+        >
+          Change
+        </button>
       </div>
     );
   }
