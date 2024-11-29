@@ -20,47 +20,7 @@ const fetchWeather = async (city) => {
 };
 
 const Weather = () => {
-  const [city, setCity] = useState("");
-  const [cityInput, setCityInput] = useState("");
-  const [weather, setWeather] = useState(null);
 
-  useEffect(() => {
-    fetchLocation().then((city) => {
-      setCity(city);
-      setCityInput(city);
-    });
-  }, []);
-
-  useEffect(() => {
-    setWeather(null);
-    if (city) {
-      fetchWeather(city).then((weatherData) => setWeather(weatherData));
-    }
-  }, [city]);
-
-  if (weather) {
-    return (
-      <div className="weather">
-        <input
-          type="text"
-          name="city"
-          value={cityInput}
-          autoComplete="off"
-          onChange={(e) => setCityInput(e.target.value)}
-        />
-        <h1>{weather.title}</h1>
-        <h2>{weather.description}</h2>
-        <img src={weather.iconPath} alt={weather.title} />
-        <p>{weather.temp} °C</p>
-
-        <button type="button" onClick={() => setCity(cityInput)}>
-          Change
-        </button>
-      </div>
-    );
-  }
-
-  return <p>Loading...</p>;
 };
 
 export default Weather;
