@@ -23,13 +23,6 @@ const Timer = () => {
     });
   };
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      incrementClock();
-      console.log(`Running interval ${intervalId}`);
-    }, 1000);
-    return () => clearInterval(intervalId);
-  }, []);
 
   return (
       <p className="timer">
