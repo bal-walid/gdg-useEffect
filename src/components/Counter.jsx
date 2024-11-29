@@ -5,13 +5,7 @@ const Counter = () => {
   const [input, setInput] = useState(1);
   const [speed, setSpeed] = useState(1)
   const updateCount = () => setCount((count) => count + speed);
-  useEffect(() => {
-    const id = setInterval(() => {
-      updateCount();
-      console.log(`Running: ${id}`);
-    }, 1000);
-    return () => clearInterval(id);
-  }, [speed]);
+
   return (
     <div className="counter">
       <p>{count}</p>
