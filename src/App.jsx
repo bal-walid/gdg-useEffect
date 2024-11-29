@@ -10,8 +10,8 @@ function App() {
     "/": { main: "#B9D8C9", nav: "#0C1B33", icon: "#0C1B33"},
     "/counter": { main: "#000000", nav: "#ffffff", icon: "#000000" },
     "/weather": { main: "#3B7E88", nav: "#8fe0ff", icon: "#75b4e3" },
+    "/window": {main: "#8DC7CF", nav:"#E8AD71", icon: "#8DC7CF"}
   };
-  console.log(route);
   return (
     <>
       <Navbar bg={colors[route].nav} iconColor={colors[route].icon} />

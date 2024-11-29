@@ -7,10 +7,6 @@
   src: url('./assets/Digital7Italic.ttf');
 }
 
-.text-shadow {
-  text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5);
-}
-
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -24,4 +20,72 @@ input[type=number]{
 
 #root {
   @apply h-screen w-screen;
+}
+
+.text-shadow {
+  text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5);
+}
+
+.timer-display {
+  @apply flex flex-col items-center;
+}
+
+.timer-display button {
+  @apply w-fit text-xl font-medium font-[Lato,sans-serif]
+}
+
+.timer {
+  @apply font-digital font-medium text-[10rem] text-[#212121]
+}
+
+.counter {
+  @apply text-white flex flex-col items-center
+}
+
+.counter p {
+  @apply text-[10rem] text-shadow
+}
+
+.counter form {
+  @apply text-white flex flex-col gap-2 items-center
+}
+
+.counter input {
+  @apply w-[100px] border-none outline-none p-2 text-center text-2xl bg-black
+}
+
+.counter button {
+  @apply text-2xl hover:font-semibold
+}
+
+.weather {
+  @apply flex flex-col w-full items-center text-white
+}
+
+.weather input {
+  @apply bg-transparent w-full text-center outline-none text-[4rem] text-shadow
+}
+
+.weather h1 {
+  @apply font-semibold text-[2rem]
+}
+
+.weather h2 {
+  @apply italic capitalize text-lg
+}
+
+.weather img {
+  @apply w-[200px] h-[120px] object-cover
+}
+
+.weather p {
+  @apply text-lg
+}
+
+.weather button {
+  @apply mt-2 text-xl hover:font-medium
+}
+
+.window {
+  @apply text-[8rem] font-medium
 }

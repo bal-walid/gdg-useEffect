@@ -40,25 +40,20 @@ const Weather = () => {
 
   if (weather) {
     return (
-      <div className="flex flex-col w-full items-center text-white">
+      <div className="weather">
         <input
           type="text"
           name="city"
           value={cityInput}
+          autoComplete="off"
           onChange={(e) => setCityInput(e.target.value)}
-          className="bg-transparent w-full text-center outline-none text-[4rem] text-shadow"
         />
-        <h1 className="text-semibold text-[2rem]" >{weather.title}</h1>
-        <p className="italic capitalize text-lg">{weather.description}</p>
-        <img className="w-[200px] h-[120px] object-cover" src={weather.iconPath} alt={weather.title} />
-        <p className="text-lg">{weather.temp} °C</p>
-        
+        <h1>{weather.title}</h1>
+        <h2>{weather.description}</h2>
+        <img src={weather.iconPath} alt={weather.title} />
+        <p>{weather.temp} °C</p>
 
-        <button
-          className="mt-2 text-xl hover:font-medium"
-          type="button"
-          onClick={() => setCity(cityInput)}
-        >
+        <button type="button" onClick={() => setCity(cityInput)}>
           Change
         </button>
       </div>
