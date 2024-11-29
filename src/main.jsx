@@ -5,6 +5,7 @@ import App from "./App.jsx";
 import TimerDisplay from "./components/TimerDisplay.jsx";
 import Counter from "./components/Counter.jsx";
 import Weather from "./components/Weather.jsx";
+import Window from "./components/Window.jsx";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
       { path: "/", element: <TimerDisplay /> },
       { path: "/counter", element: <Counter /> },
       { path: "/weather", element: <Weather /> },
+      { path: "/window", element: <Window /> },
     ],
   },
 ]);
